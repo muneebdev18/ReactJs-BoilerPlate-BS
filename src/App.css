@@ -1,0 +1,67 @@
+/* Add your Google Fonts */
+
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&display=swap'); */
+
+/* Add your CSS Variables */
+
+/* 
+:root {
+  --text: #fff;
+  --BlackText: #000;
+  --Antic: "Antic Didone", serif;
+  --Inter: "Inter", sans-serif;
+} */
+
+#root {
+  overflow-x: hidden !important;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  overflow-x: hidden !important;
+}
+
+* {
+  margin: 0%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+ul,
+li,
+a,
+textarea {
+  margin: 0;
+  padding: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+a,
+a:hover,
+a:focus {
+  text-decoration: none !important;
+}
+
+ul,
+li {
+  /* list-style: none; */
+  margin: 0 !important;
+  padding: 0;
+}
+
+button {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
