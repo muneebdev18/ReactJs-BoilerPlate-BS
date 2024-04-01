@@ -5,17 +5,17 @@
 Hooks for fetching the data
 - Normal Fetching GET
 
-import {useFetch} from '../../hooks/useGet'
+import {useFetch} from '../../hooks/getHook'
 const { data, loading, error } = useFetch(`api_url`);
 
 - SWR Fetching GET
 
-import {useFetchSWR} from '../../hooks/useGet'
+import {useFetchSWR} from '../../hooks/getHook'
 const { data, loading, error } = useFetchSWR(`api_url`);
 
 - Fetch Hook SWR - Bearer Token
 
-import useAuthorizedSWRFetch from '../../hooks/useGet';
+import useAuthorizedSWRFetch from '../../hooks/getHook';
 const { data, loading, error } = useAuthorizedSWRFetch(`api_url`, token);
 
 
