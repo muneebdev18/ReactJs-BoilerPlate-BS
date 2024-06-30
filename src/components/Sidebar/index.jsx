@@ -1,6 +1,6 @@
 import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-
+import styles from './style.module.css'
 const Sidebar = () => {
   return (
     <>
@@ -12,12 +12,13 @@ const Sidebar = () => {
         aria-controls="offcanvasExample"
       />
       <div
-        class="offcanvas offcanvas-start"
+        className={`offcanvas offcanvas-start ${styles.sidebarContainer}`}
         tabindex="-1"
         id="offcanvasExample"
         aria-labelledby="offcanvasExampleLabel"
       >
         {/* Write The Design Code Here */}
+        <GiHamburgerMenu/>
       </div>
     </>
   );
