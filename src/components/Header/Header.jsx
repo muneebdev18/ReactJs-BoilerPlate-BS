@@ -1,30 +1,40 @@
-import { useEffect, useState } from "react";
-import styles from "./style.module.css";
-import Sidebar from "../Sidebar";
+import React, { useEffect, useState } from 'react';
+import Sidebar from '../Sidebar';
+import BottomNav from '../bottomNav'; // Import the BottomNav component
+
 const Header = () => {
   const [isActive, setIsActive] = useState(true);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 991) {
         setIsActive(false);
-        console.log("Screen size is less than or equal to 991 pixels.");
+        console.log('Screen size is less than or equal to 991 pixels.');
       } else {
         setIsActive(true);
-        console.log("Screen size is greater than 991 pixels.");
+        console.log('Screen size is greater than 991 pixels.');
+      }
+
+      // Check for screen size less than or equal to 520 pixels
+      if (window.innerWidth <= 520) {
+        setIsSmallScreen(true);
+      } else {
+        setIsSmallScreen(false);
       }
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     handleResize();
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
   return (
     <>
-      {isActive ? (
+      {!isSmallScreen && isActive ? (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
@@ -41,10 +51,7 @@ const Header = () => {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="#">
@@ -67,10 +74,7 @@ const Header = () => {
                   >
                     Dropdown
                   </a>
-                  <ul
-                    className="dropdown-menu"
-                    aria-labelledby="navbarDropdown"
-                  >
+                  <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
                       <a className="dropdown-item" href="#">
                         Action
@@ -117,8 +121,10 @@ const Header = () => {
           </div>
         </nav>
       ) : (
-        <Sidebar />
+        !isSmallScreen && <Sidebar />
       )}
+
+      {isSmallScreen && <BottomNav />} {/* Show BottomNav if screen size is less than or equal to 520 pixels */}
     </>
   );
 };
